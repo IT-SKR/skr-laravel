@@ -1,0 +1,15 @@
+{
+    "name": "itskr/skr-laravel",
+    "description": "make your laravel skr",
+    "license": "MIT",
+    "authors": [{
+        "name": "IT-SKR",
+        "email": "540299780@qq.com"
+    }],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Itskr\\SkrLaravel\\": "src/"
+        }
+    }
+}
