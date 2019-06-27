@@ -9,7 +9,7 @@
 namespace App\Exceptions;
 
 
-class HfasException extends \Exception
+class SkrException extends \Exception
 {
 
     protected $message;

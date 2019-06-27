@@ -14,8 +14,8 @@ class ItSkrServiceProvider extends ServiceProvider
     public function register()
     {
         //
-        $this->app['skr'] = $this->app->share(function ($app){
-            return new Skr($app['session'],$app['config']);
+        $this->app->singleton('skr',function (){
+            return new Skr();
         });
     }
 
@@ -27,11 +27,16 @@ class ItSkrServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        $this->loadViewsFrom(__DIR__.'/views','Skr');
+//        $this->loadViewsFrom(__DIR__.'/views','Skr');
         $this->publishes([
-            __DIR__.'/views'=>base_path('resources/views/skr'),
+//            __DIR__.'/views'=>base_path('resources/views/skr'),
             __DIR__.'/config/skr.php'=>config_path('skr.php')
         ]);
 
+    }
+
+    public function provides()
+    {
+        return ['skr'];
     }
 }

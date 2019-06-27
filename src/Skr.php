@@ -11,5 +11,7 @@ namespace Itskr\SkrLaravel;
 
 class Skr
 {
-
+    public static function validate(){
+        dd('ok');
+    }
 }

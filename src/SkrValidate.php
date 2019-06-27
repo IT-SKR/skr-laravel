@@ -48,7 +48,7 @@ class SkrValidate
             $javascript .= " toastr.{$notification['type']}('$message','$title');";
         }
 
-        return view('Toastr::toastr', compact('javascript'));
+        return view('Skr::toastr', compact('javascript'));
     }
 
 }
