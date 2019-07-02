@@ -6,7 +6,7 @@
         "name": "IT-SKR",
         "email": "540299780@qq.com"
     }],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {},
     "autoload": {
         "psr-4": {
