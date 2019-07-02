@@ -4,7 +4,7 @@ namespace Itskr\SkrLaravel;
 
 use Illuminate\Support\ServiceProvider;
 
-class ItSkrServiceProvider extends ServiceProvider
+class SkrServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -30,7 +30,7 @@ class ItSkrServiceProvider extends ServiceProvider
 //        $this->loadViewsFrom(__DIR__.'/views','Skr');
         $this->publishes([
 //            __DIR__.'/views'=>base_path('resources/views/skr'),
-            __DIR__.'/config/skr.php'=>config_path('skr.php')
+            __DIR__ . '/config/skr' =>config_path('skr')
         ]);
 
     }

@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lw540
- * Date: 2019/2/4
- * Time: 15:23
- */
 
-namespace App\Exceptions;
+namespace Itskr\SkrLaravel;
 
 
 class SkrException extends \Exception
@@ -23,9 +17,9 @@ class SkrException extends \Exception
 
     public function render(){
         if (empty($this->code)){
-            return hfas_response($this->message);
+            return Skr::response($this->message);
         }
-        return hfas_response($this->message,[],$this->code);
+        return Skr::response($this->message,null,$this->code);
     }
 
 }
