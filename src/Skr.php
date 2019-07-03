@@ -4,8 +4,6 @@
 namespace Itskr\SkrLaravel;
 
 
-use App\Exceptions\SkrException;
-
 class Skr
 {
 
