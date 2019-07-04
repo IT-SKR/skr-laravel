@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lw540
- * Date: 2019/6/27
- * Time: 10:57
- */
+
 
 namespace Itskr\SkrLaravel\Facades;
 

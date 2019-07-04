@@ -2,9 +2,6 @@
 
 
 namespace Itskr\SkrLaravel;
-
-
-use App\Exceptions\SkrException;
 use Illuminate\Validation\Validator;
 
 class SkrValidate

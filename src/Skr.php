@@ -16,7 +16,7 @@ class Skr
         return $skr_response->response($err_map_code,$data,$default_err_code,$default_http_code);
     }
 
-    public static function Exception(string $message,string $code=''){
+    public static function exception(string $message,string $code=''){
         return new SkrException($message,$code);
     }
 }
