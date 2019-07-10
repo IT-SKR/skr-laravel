@@ -2,9 +2,7 @@
 
 
 namespace Itskr\SkrLaravel;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Validation\Factory;
-use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Validator;
 
 class SkrValidate
 {
@@ -25,16 +23,11 @@ class SkrValidate
             throw new SkrException('@hfas validate rules can not be empty');
         }
 
-        $validator = new Factory(app('translator'), app());
-        if (app()->bound('db')&&app()->bound('validation.presence')) {
-            $validator->setPresenceVerifier(app('validation.presence'));
-        }
-
         //重构laravel 规则
         $laravel_rules = self::rebuildRules($rules);
 
         //开启验证
-        $validator = $validator->make($params,$laravel_rules);
+        $validator = Validator::make($params,$laravel_rules);
         //校验消息
         if ($validator->fails()){
             $messages = $validator->errors()->getMessages();
