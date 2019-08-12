@@ -91,9 +91,9 @@ class SkrResponse
 
         if (substr($err_map_code,0,1)=='@'){
 
-            $err_code = $err_code ?? $default[0];
+            $err_code = empty($err_code) ? $default[0]:$err_code;
 
-            $http_code = $http_code ?? $default[2];
+            $http_code = empty($http_code) ? $default[2]:$http_code;
 
             return [$err_code,Str::after($err_map_code,'@'),$http_code];
         }
