@@ -32,19 +32,26 @@ Skr::check($request->all(),['mobile'=>['required','ILLEGAL_MOBILE']]);
 ```
 
 ## 配置项目 config
-1、config/app.php文件中的providers数组里面添加<br/>
+1、下载composer包
+
+```
+composer require itskr/skr-laravel
+
+```
+
+2、config/app.php文件中的providers数组里面添加<br/>
 
 ```
 Itskr\SkrLaravel\SkrServiceProvider::class
 ```
 
-2、发布配置资源到config中，执行
+3、发布配置资源到config中，执行
 ```
 php artisan vendor:publish
 ```
 
 
-3、屏蔽掉日志打印并拦截默认错误的输出，app/Exceptions/Handle.php文件中修改
+4、屏蔽掉日志打印并拦截默认错误的输出，app/Exceptions/Handle.php文件中修改
 ```
     //屏蔽错误日志的打印
     protected $dontReport = [
