@@ -12,16 +12,16 @@
  *
  */
 return [
-    'default'=>[
-        'source_headers'=>null,
-        'err_prefix'=>'skr.errors.default',
-        'response_format'=>['code','msg','data']//skr 默认返回格式
+    'default' => [
+        'source_headers' => null,
+        'err_prefix' => 'skr.errors.default',
+        'response_format' => ['code', 'msg', 'data']//skr 默认返回格式
     ],
-    'others'=>[
-        'source_headers'=>[
-            'skr-source-others'=>'skr_others' //当herder中存在键skr-source-others的值为skr_others 时则走此条规则
+    'others' => [
+        'source_headers' => [
+            'skr-source-others' => 'skr_others' //当herder中存在键skr-source-others的值为skr_others 时则走此条规则
         ],
-        'err_prefix'=>'skr.errors.default',
-        'response_format'=>['errCode','errMsg','data']//skr 其他返回格式
+        'err_prefix' => 'skr.errors.default',
+        'response_format' => ['errCode', 'errMsg', 'data']//skr 其他返回格式
     ]
 ];

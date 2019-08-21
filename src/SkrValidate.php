@@ -2,6 +2,7 @@
 
 
 namespace Itskr\SkrLaravel;
+
 use Illuminate\Support\Facades\Validator;
 
 class SkrValidate
@@ -16,10 +17,11 @@ class SkrValidate
      * @param array $rules
      * @throws SkrException
      */
-    public static function check(array $params, array $rules){
+    public static function check(array $params, array $rules)
+    {
 
         //如果没有传递规则
-        if (empty($rules)||!is_array($rules)){
+        if (empty($rules) || !is_array($rules)) {
             throw new SkrException('@hfas validate rules can not be empty');
         }
 
@@ -27,15 +29,15 @@ class SkrValidate
         $laravel_rules = self::rebuildRules($rules);
 
         //开启验证
-        $validator = Validator::make($params,$laravel_rules);
+        $validator = Validator::make($params, $laravel_rules);
         //校验消息
-        if ($validator->fails()){
+        if ($validator->fails()) {
             $messages = $validator->errors()->getMessages();
-            foreach ($messages as $key=>$value){
-                if (isset($rules[$key][1])){
+            foreach ($messages as $key => $value) {
+                if (isset($rules[$key][1])) {
                     //如果设置了错误信息
                     throw new SkrException($rules[$key][1]);
-                }else{
+                } else {
                     //如果没有设置错误信息，则抛出laravel自带的错误提示
                     $msg = current($value);
                     throw new SkrException("@$msg");
@@ -52,23 +54,25 @@ class SkrValidate
      * @param string $rule
      * @throws SkrException
      */
-    public static function commCheck(array $params, array $requires = [],$rule='default'){
+    public static function commCheck(array $params, array $requires = [], $rule = 'default')
+    {
 
         //通用校验
-        self::check($params,config("hjs.validate.$rule"));
+        self::check($params, config("hjs.validate.$rule"));
 
         //校验必填项
-        if (!empty($requires)){
-            self::check($params,self::requiredRules($requires));
+        if (!empty($requires)) {
+            self::check($params, self::requiredRules($requires));
         }
 
     }
 
     //
-    private static function requiredRules($requires){
+    private static function requiredRules($requires)
+    {
         $rules = [];
-        foreach ($requires as $require){
-            $rules+= [$require=>['required']];
+        foreach ($requires as $require) {
+            $rules += [$require => ['required']];
         }
         return $rules;
     }
@@ -79,10 +83,11 @@ class SkrValidate
      * @return array
      */
 
-    private static function rebuildRules(array $rules){
+    private static function rebuildRules(array $rules)
+    {
         $laravel_rules = [];
-        foreach ($rules as $key=>$value){
-            $laravel_rules += [$key=>$value[0]];
+        foreach ($rules as $key => $value) {
+            $laravel_rules += [$key => $value[0]];
         }
         return $laravel_rules;
     }

@@ -14,7 +14,7 @@ class SkrServiceProvider extends ServiceProvider
     public function register()
     {
         //
-        $this->app->singleton('skr',function ($app){
+        $this->app->singleton('skr', function ($app) {
             return new Skr();
         });
     }
@@ -30,7 +30,7 @@ class SkrServiceProvider extends ServiceProvider
 //        $this->loadViewsFrom(__DIR__.'/views','Skr');
         $this->publishes([
 //            __DIR__.'/views'=>base_path('resources/views/skr'),
-            __DIR__ . '/config/skr' =>config_path('skr')
+            __DIR__ . '/config/skr' => config_path('skr')
         ]);
 
     }
