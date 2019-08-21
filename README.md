@@ -1,10 +1,10 @@
-# 关于 about skr-laravel 程序的唯一响应出口
-帮助用户统一项目的响应格式，包括<br/>
+# 关于 about skr-laravel
+程序的唯一响应出口，帮助用户统一项目的响应格式，包括<br/>
 response返回格式<br/>
 throw Exception的格式<br/>
 validate验证的返回格式<br/>
 
-## 例如
+## 例如 example
 在config中配置错误码
 ```
 [
@@ -32,26 +32,26 @@ Skr::check($request->all(),['mobile'=>['required','ILLEGAL_MOBILE']]);
 ```
 
 ## 配置项目 config
-1、下载composer包
+step 1、下载composer包
 
 ```
 composer require itskr/skr-laravel
 
 ```
 
-2、config/app.php文件中的providers数组里面添加<br/>
+step 2、config/app.php文件中的providers数组里面添加<br/>
 
 ```
 Itskr\SkrLaravel\SkrServiceProvider::class
 ```
 
-3、发布配置资源到config中，执行
+step 3、发布配置资源到config中，执行
 ```
 php artisan vendor:publish
 ```
 
 
-4、屏蔽掉日志打印并拦截默认错误的输出，app/Exceptions/Handle.php文件中修改
+step 4、屏蔽掉日志打印并拦截默认错误的输出，app/Exceptions/Handle.php文件中修改
 ```
     //屏蔽错误日志的打印
     protected $dontReport = [
@@ -67,7 +67,7 @@ php artisan vendor:publish
 ```
 
 
-## 更多使用技巧
+## 更多使用技巧 more
 1、支持通过header自动识别响应格式，默认响应code、msg、data,参考config/skr/response.php
 ```
 return [
