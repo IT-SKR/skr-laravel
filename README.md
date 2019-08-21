@@ -32,24 +32,32 @@ Skr::check($request->all(),['mobile'=>['required','ILLEGAL_MOBILE']]);//封装�
 ```
 
 ## 配置项目 config
-config目录下的app.php文件providers数组里面添加<br/>
+1、config/app.php文件中的providers数组里面添加<br/>
+
+```
 Itskr\SkrLaravel\SkrServiceProvider::class
+```
 
-执行php artisan vendor:publish
+2、发布配置资源到config中，执行
+```
+php artisan vendor:publish
+```
 
-app/Exceptions/Handle.php文件中屏蔽掉日志打印并拦截默认错误的输出
-````
+
+3、屏蔽掉日志打印并拦截默认错误的输出，app/Exceptions/Handle.php文件中修改
+```
+    //屏蔽错误日志的打印
     protected $dontReport = [
-      
         SkrException::class
     ];
     
+    //将系统异常统一转化成系统繁忙
     public function render($request, Exception $exception)
     {
        return Skr::response("BUSY");//BUSY可替换成其他提示
     }
     
-````
+```
 
 
 ## 更多使用技巧
