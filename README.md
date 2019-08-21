@@ -13,13 +13,13 @@ validate验证的返回格式<br/>
 ```
 以下三种方式返回相同格式数据给端上<br/>
 ```
-return Skr::response('ILLEGAL_MOBILE');//封装了系统的response方法
+return Skr::response('ILLEGAL_MOBILE');
 ```
 ```
-throw Skr::exception('ILLEGAL_MOBILE');//封装了系统的exception指向response
+throw Skr::exception('ILLEGAL_MOBILE');
 ```
 ```
-Skr::check($request->all(),['mobile'=>['required','ILLEGAL_MOBILE']]);//封装了validate
+Skr::check($request->all(),['mobile'=>['required','ILLEGAL_MOBILE']]);
 ```
 
 端上收到的格式如下
@@ -61,7 +61,7 @@ php artisan vendor:publish
 
 
 ## 更多使用技巧
-1、在config目录response文件中配置响应格式，默认响应code，msg，data
+1、支持通过header自动识别响应格式，默认响应code、msg、data,参考config/skr/response.php
 ```
 return [
     'default'=>[
