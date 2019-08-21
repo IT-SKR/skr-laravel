@@ -4,7 +4,7 @@ response返回格式<br/>
 throw Exception的格式<br/>
 validate验证的返回格式<br/>
 
-##例如
+## 例如
 在config中配置错误码
 ```
 [
@@ -37,7 +37,22 @@ Itskr\SkrLaravel\SkrServiceProvider::class
 
 执行php artisan vendor:publish
 
-##更多使用技巧
+app/Exceptions/Handle.php文件中屏蔽掉日志打印并拦截默认错误的输出
+````
+    protected $dontReport = [
+      
+        SkrException::class
+    ];
+    
+    public function render($request, Exception $exception)
+    {
+       return Skr::response("BUSY");//BUSY可替换成其他提示
+    }
+    
+````
+
+
+## 更多使用技巧
 1、在config目录response文件中配置响应格式，默认响应code，msg，data
 ```
 return [
