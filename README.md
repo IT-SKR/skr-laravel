@@ -47,7 +47,7 @@ Itskr\SkrLaravel\SkrServiceProvider::class
 
 step 3、发布配置资源到config中，执行
 ```
-php artisan vendor:publish
+php artisan vendor:publish --provider="Itskr\SkrLaravel\SkrServiceProvider"
 ```
 
 
@@ -55,13 +55,13 @@ step 4、屏蔽掉日志打印并拦截默认错误的输出，app/Exceptions/Ha
 ```
     //屏蔽错误日志的打印
     protected $dontReport = [
-        SkrException::class
+        \Itskr\SkrLaravel\SkrException::class
     ];
     
     //将系统异常统一转化成系统繁忙
     public function render($request, Exception $exception)
     {
-       return Skr::response("BUSY");//BUSY可替换成其他提示
+       return \Itskr\SkrLaravel\Skr::response("BUSY");//BUSY可替换成其他提示
     }
     
 ```
