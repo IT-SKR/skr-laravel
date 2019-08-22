@@ -61,7 +61,12 @@ step 4、屏蔽掉日志打印并拦截默认错误的输出，app/Exceptions/Ha
     //将系统异常统一转化成系统繁忙
     public function render($request, Exception $exception)
     {
-       return \Itskr\SkrLaravel\Skr::response("BUSY");//BUSY可替换成其他提示
+        //系统其他错误直接返回BUSY....可修改
+        if (!$exception instanceof \Itskr\SkrLaravel\SkrException){
+            return \Itskr\SkrLaravel\Skr::response('BUSY');
+        }
+
+        return parent::render($request,$exception);
     }
     
 ```
